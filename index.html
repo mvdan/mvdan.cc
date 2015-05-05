@@ -11,41 +11,45 @@
 			height: 100%; width: 100%;
 		}
 		body {
-			min-width: 21rem; font-family: Inconsolata, Sans-Serif; display: table;
-			-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none;
-			-moz-user-select: none; -ms-user-select: none; user-select: none;
+			min-width: 23rem; font-family: Inconsolata, Sans-Serif; display: table;
 			background-color: #f0efe7;
 		}
 		#container {
-			display: table-cell; vertical-align: middle; cursor: default; text-align: center;
+			display: table-cell; vertical-align: middle; text-align: center;
 		}
 		#inner {
-			display: inline-block;
+			display: inline-block; padding: 1rem;
+		}
+		#inner > p {
+			display: block; font-size: 1rem; padding: 0.5rem 0;
+		}
+		#inner > ul {
+			display: inline-block; padding-top: 0.6rem;
 		}
 		li {
 			list-style: none; width: 7rem; float: left;
 		}
 		li > a {
-			color: #112; font-size: 1.3rem; letter-spacing: 0.1em; text-decoration: none;
+			color: #112; font-size: 1.5rem; letter-spacing: 0.1em; text-decoration: none;
 			display: block; padding: 0.7rem 0;
 		}
 		li > a:hover {
 			color: #224; background-color: #dad4cc;
-		}
-		#footer {
-			display: inline-block; font-size: 1rem; padding: 0.5rem 0;
 		}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<div id="inner">
+			<p>My name is Daniel Martí.</p>
+			<p>I study CS at UPC BarcelonaTech.</p>
+			<p>On my free time I work on projects like F-Droid and Tor.</p>
 			<ul>
 				<li><a href="mailto:mvdan@mvdan.cc">mail</a></li>
 				<li><a href="https://github.com/mvdan">github</a></li>
 				<li><a href="0x4348041C.asc">pgp</a></li>
 			</ul>
-			<p id="footer">mvdan on freenode &amp; oftc</p>
+			<p>mvdan on freenode &amp; oftc</p>
 		</div>
 	</div>
 </body>
