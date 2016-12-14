@@ -1,0 +1,83 @@
+\expandafter\def\csname ver@fontenc.sty\endcsname{}
+\expandafter\def\csname opt@fontenc.sty\endcsname{T1}
+\PassOptionsToPackage{pdfpagelabels=false,,unicode}{hyperref}
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+\moderncvtheme[blue]{classic}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.3cm,bottom=1.5cm,left=1.5cm,right=1.5cm,asymmetric]{geometry}
+
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+\renewcommand*{\emailsymbol}{}
+\renewcommand*{\homepagesymbol}{}
+
+\firstname{Daniel}
+\familyname{Martí}
+\email{mvdan@mvdan.cc}
+\homepage{mvdan.cc}
+\extrainfo{\httplink{github.com/mvdan}}
+
+\nopagenumbers{}
+\begin{document}
+\makecvtitle
+\vspace{-1cm}
+
+\section{Education}
+\cventry{2012 - 2016}{B.S. Computer Engineering}{\href{https://www.fib.upc.edu/}{UPC BarcelonaTech}}{Barcelona}{}{
+Specializing in Computing (Theory of Computation, Algorithms, Artificial Intelligence, Compilers)}
+
+\section{Experience}
+\cventry{Feb 2016\\Jul 2016}{Research Associate}{\href{http://www.ncl.ac.uk/}{Newcastle University}}{Newcastle, UK}{}{
+\begin{itemize}
+	\item[•] Joining a research group dedicated to concurrent computing and graph theory in Haskell
+	\item[•] Doing my undergrad project in the design of concurrent circuits
+\end{itemize}
+}
+\cventry{Jun 2015\\Sep 2015}{Software Engineering Intern}{\href{https://google.com}{Google}}{Mountain View, California}{}{
+\begin{itemize}
+	\item[•] Working on Kubernetes, the open source container cluster manager written in Go
+	\item[•] Introduced cluster usage metrics having scalability and the scheduler in mind
+	\item[•] Helped port the project to Go 1.5 fixing a number of data races
+\end{itemize}
+}
+\cventry{May 2014\\Feb 2015}{Developer}{\href{https://torproject.org}{Tor Project}}{}{}{
+\begin{itemize}
+	\item[•] Started contributing as part of \href{https://www.google-melange.com/gsoc/homepage/google/gsoc2014}{Google Summer of Code 2014}
+	\item[•] Reduced 100x its network maintenance load by coding a near-linear time diff algorithm for consensuses
+	\item[•] Wrote C code with an emphasis on security and simplicity including unit tests and benchmarks
+\end{itemize}
+}
+\cventry{Feb 2013\\present}{Core Developer}{\href{https://f-droid.org/}{F-Droid Project}}{}{}{
+\begin{itemize}
+	\item[•] Widely known open source app distribution system with over 80k regular users
+	\item[•] Over 6k commits mostly working on the client (Android) and the server (Python)
+	\item[•] Did a FOSDEM'14 main track talk on the challenges and future of the project
+\end{itemize}
+}
+\cventry{2013 - 14}{Research Associate}{\href{https://www.fib.upc.edu/}{UPC BarcelonaTech}}{Barcelona}{}{}
+\cventry{mid 2013}{Technical Intern}{\href{https://fsfe.org/}{Free Software Foundation Europe}}{Berlin}{}{}
+
+\section{Side projects}
+\cvline{2016}{\href{https://github.com/mvdan/sh}{sh} - Go - A shell parser and formatter}
+\cvline{2015}{\href{https://github.com/mvdan/interfacer}{interfacer} - Go - A linter that suggests interface types}
+\cvline{2015}{\href{https://github.com/mvdan/xurls}{xurls} - Go - Extract urls from text using regex expressions}
+\cvline{2015}{\href{https://github.com/mvdan/accesspoint}{accesspoint} - Java - Manage wireless access points in Android}
+
+\section{Awards}
+\cvline{PennApps\\Jan 2015}{First place at the winter edition of PennApps with an Android app that makes anyone a cardiac arrest first responder and life saver}
+\cvline{WIPJam\\Feb 2014}{First place at the Intel CCF Hackathon at MWC 2014 by writing a peer-to-peer poker app for Android using their wireless framework}
+
+\section{Programming languages}
+\cvline{Comfortable}{Go, C, Python, Shell}
+\cvline{Familiar}{Haskell, Java, C++, Lua}
+
+\section{Skills}
+\cvline{VCS}{Experienced with Git - branches, release workflow, rebasing, conflicts, etc}
+\cvline{Systems}{My server has been hosting my own e-mail, web and messaging services since 2012}
+\cvline{Teamwork}{Written production software as part of large globally distributed teams (F-Droid, Tor, Kubernetes)}
+\cvline{Languages}{Native in Catalan and Spanish, proficient in English, limited in French}
+
+\end{document}
