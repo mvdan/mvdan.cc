@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/mvdan
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://mvdan.cc
+  * I am mvdan (https://keybase.io/mvdan) on keybase.
+  * I have a public key ASA4MmcWdoA_zSWkg14S2avWaLwGoShwnpkg67zk6-n-two
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01203832671676803fcd25a4835e12d9abd668bc06a128709e9920ebbce4ebe9feb70a",
+      "host": "keybase.io",
+      "kid": "01203832671676803fcd25a4835e12d9abd668bc06a128709e9920ebbce4ebe9feb70a",
+      "uid": "6ad960cdb4b6df54736ab5aa5f95fa19",
+      "username": "mvdan"
+    },
+    "merkle_root": {
+      "ctime": 1584706741,
+      "hash": "231d2d72534c07905fdb333bfebc89be8d1e90a24381eb7f45e21c9c0d4e555d61b102550efd3d58ebb76dbf24f1049e8f6e3ba6d6b76f6885ea90be15b51cdd",
+      "hash_meta": "23cd168a1bd5ff99966b5b2822300bbc8dc67eff81edea0f461542fdbf091298",
+      "seqno": 15519130
+    },
+    "service": {
+      "entropy": "QRx2d4V2MhorMf5KSjmMd+Ow",
+      "hostname": "mvdan.cc",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.3.0"
+  },
+  "ctime": 1584706749,
+  "expire_in": 504576000,
+  "prev": "73cd390f0be74e35aecb51ce9612dbbdcf2a3f7d17509f5557b025de77a522c7",
+  "seqno": 15,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgODJnFnaAP80lpINeEtmr1mi8BqEocJ6ZIOu85Ovp/rcKp3BheWxvYWTESpcCD8Qgc805DwvnTjWuy1HOlhLbvc8qP30XUJ9VV7Al3nelIsfEIOr9viy1huewvuixfyVaqbSOJRYFAlnQVfU5Ci649FiAAgHCo3NpZ8RASXyLaPSnBUZwG27WWa7LxNVYKZGxowK253KzK2Q7lSYPbGvjqwyt1/r+KZIqyzVN7RPAc2Lu6YMYdLjTnGq2CKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKOgM9IiwVGj4zvw0niCeRA2nEJ2zgglMSf0HK6u7IOro3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mvdan
+
+==================================================================
