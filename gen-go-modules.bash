@@ -13,6 +13,7 @@ modules=(
 	gogrep
 	goreduce
 	interfacer
+	lint
 	nowt
 	route
 	sh{,/v3}
