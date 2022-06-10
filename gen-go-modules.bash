@@ -2,6 +2,7 @@
 
 modules=(
 	benchinit
+	bitw
 	corpus
 	dockexec
 	editorconfig
