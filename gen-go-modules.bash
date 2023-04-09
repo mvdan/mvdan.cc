@@ -8,13 +8,13 @@ modules=(
 	editorconfig
 	fdroidcl
 	garble
-	gibot
 	git-picked
 	gofumpt
 	gogrep
 	goreduce
 	interfacer
 	nowt
+	responsefile
 	route
 	sh{,/v3}
 	unindent
