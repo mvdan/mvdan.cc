@@ -16,7 +16,7 @@ modules=(
 	nowt
 	responsefile
 	route
-	sh{,/v3}
+	sh{,/v3,/moreinterp}
 	unindent
 	unparam
 	xurls{,/v2}
