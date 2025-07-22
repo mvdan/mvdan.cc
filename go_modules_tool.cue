@@ -115,6 +115,10 @@ command: generate: {
 				cmd: ["go", "list", m.modPath+"/..."]
 				stdout: string
 			}
+			cleanTemp: file.RemoveAll & {
+				$after: goList
+				path: mkdirTemp.path
+			}
 			// Package paths redirect to pkg.go.dev for the docs.
 			// A module's root index.html is written above.
 			for fullp in strings.Fields(goList.stdout) if fullp != m.modPath {
