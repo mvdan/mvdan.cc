@@ -1,7 +1,6 @@
 package main
 
 import (
-	"list"
 	"strings"
 	pathpkg "path"
 	"tool/exec"
@@ -13,17 +12,18 @@ _domain: "mvdan.cc"
 #Module: {
 	owner: string | *"mvdan"
 	repoName!: string
-	majorSuffix?: string
+	subDir: string | *""
+	majorSuffix: string | *""
 
-	_dirElems: [
-		repoName,
-		if majorSuffix != _|_ {
-			majorSuffix,
-		}
-	]
-	dir: pathpkg.Join(_dirElems, _os)
+	dir: pathpkg.Join([repoName, subDir, majorSuffix], _os)
 
-	fullName: pathpkg.Join(list.Concat([[_domain], _dirElems]), "unix")
+	// NOTE: to support e.g. mvdan.cc/repo/subdir/v2 we will need the subdirectory feature
+	// for go-import from Go 1.25 and later, as the VCS would host the code in the subdirectory "subdir"
+	// but the root module prefix could only be "mvdan.cc/repo".
+	// TODO: the go-source meta tags likely need adjusting when subDir is non-empty.
+	// Test that out once moreinterp has a package for us to use.
+	rootModPath: pathpkg.Join([_domain, repoName, majorSuffix], "unix")
+	modPath:     pathpkg.Join([_domain, repoName, subDir, majorSuffix], "unix")
 }
 
 _modules: [...#Module] & [
@@ -44,7 +44,7 @@ _modules: [...#Module] & [
 	{repoName: "route"},
 	{repoName: "sh"},
 	{repoName: "sh", majorSuffix: "v3"},
-	// {repoName: "sh/moreinterp"},
+	{repoName: "sh", subDir: "moreinterp"},
 	{repoName: "unindent"},
 	{repoName: "unparam"},
 	{repoName: "xurls"},
@@ -86,8 +86,8 @@ command: generate: {
 				<!DOCTYPE html>
 				<head>
 					<meta http-equiv="content-type" content="text/html; charset=utf-8">
-					<meta name="go-import" content="\(m.fullName) git \(repoURL)">
-					<meta name="go-source" content="\(m.fullName) \(repoURL) \(repoURL)/tree/HEAD{/dir} \(repoURL)/blob/HEAD{/dir}/{file}#L{line}">
+					<meta name="go-import" content="\(m.rootModPath) git \(repoURL)">
+					<meta name="go-source" content="\(m.rootModPath) \(repoURL) \(repoURL)/tree/HEAD{/dir} \(repoURL)/blob/HEAD{/dir}/{file}#L{line}">
 					<meta http-equiv="refresh" content="0; url=\(repoURL)">
 				</head>
 				</html>
@@ -106,27 +106,27 @@ command: generate: {
 			goGet: exec.Run & {
 				$after: goInit
 				dir: mkdirTemp.path
-				cmd: ["go", "get", m.fullName+"/..."]
+				cmd: ["go", "get", m.modPath+"/..."]
 				stderr: string // be silent
 			}
 			goList: exec.Run & {
 				$after: goGet
 				dir: mkdirTemp.path
-				cmd: ["go", "list", m.fullName+"/..."]
+				cmd: ["go", "list", m.modPath+"/..."]
 				stdout: string
 			}
 			// Package paths redirect to pkg.go.dev for the docs.
 			// A module's root index.html is written above.
-			for fullp in strings.Fields(goList.stdout) if fullp != m.fullName {
-				let subp = strings.TrimPrefix(fullp, m.fullName+"/")
+			for fullp in strings.Fields(goList.stdout) if fullp != m.modPath {
+				let subp = strings.TrimPrefix(fullp, m.modPath+"/")
 				(subp): _writeFile & {
 					_filename: pathpkg.Join([m.dir, subp, "index.html"], _os)
 					_contents: """
 						<!DOCTYPE html>
 						<head>
 							<meta http-equiv="content-type" content="text/html; charset=utf-8">
-							<meta name="go-import" content="\(m.fullName) git \(repoURL)">
-							<meta name="go-source" content="\(m.fullName) \(repoURL) \(repoURL)/tree/HEAD{/dir} \(repoURL)/blob/HEAD{/dir}/{file}#L{line}">
+							<meta name="go-import" content="\(m.modPath) git \(repoURL)">
+							<meta name="go-source" content="\(m.modPath) \(repoURL) \(repoURL)/tree/HEAD{/dir} \(repoURL)/blob/HEAD{/dir}/{file}#L{line}">
 							<meta http-equiv="refresh" content="0; url=https://pkg.go.dev/\(fullp)">
 						</head>
 						</html>
