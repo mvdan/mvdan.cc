@@ -24,8 +24,6 @@ _domain: "mvdan.cc"
 	dir: pathpkg.Join(_dirElems, _os)
 
 	fullName: pathpkg.Join(list.Concat([[_domain], _dirElems]), "unix")
-
-	branch: string | *"master"
 }
 
 _modules: [...#Module] & [
@@ -128,7 +126,7 @@ command: generate: {
 						<head>
 							<meta http-equiv="content-type" content="text/html; charset=utf-8">
 							<meta name="go-import" content="\(m.fullName) git \(repoURL)">
-							<meta name="go-source" content="\(m.fullName) \(repoURL) \(repoURL)/tree/\(m.branch){/dir} \(repoURL)/blob/\(m.branch){/dir}/{file}#L{line}">
+							<meta name="go-source" content="\(m.fullName) \(repoURL) \(repoURL)/tree/HEAD{/dir} \(repoURL)/blob/HEAD{/dir}/{file}#L{line}">
 							<meta http-equiv="refresh" content="0; url=https://pkg.go.dev/\(fullp)">
 						</head>
 						</html>
